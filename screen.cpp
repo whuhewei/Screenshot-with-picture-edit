@@ -373,10 +373,10 @@ void Screen::savePixmap()
     QTime time;
     //获取当前系统时间，用做伪随机数的种子
     time = QTime::currentTime();
-    qsrand(time.msec() + time.second() * 1000);
+    srand(time.msec() + time.second() * 1000);
     //随机字符串
     QString randStr;
-    randStr.setNum(qrand());
+    randStr.setNum(rand());
     picName.append(randStr);
 
     QString filename=QFileDialog::getSaveFileName(this,QStringLiteral("保存截图"),picName,"JPEG Files(*.jpg)");

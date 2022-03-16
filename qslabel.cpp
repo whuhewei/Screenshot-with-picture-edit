@@ -272,7 +272,6 @@ void QSLabel::settexteditenable()
 
        m_plaintextedit->hide();
 }
-
 void QSLabel::settextedittovector()
 {
     if (istextedit&&m_plaintextedit->toPlainText().size())
@@ -287,6 +286,6 @@ void QSLabel::settextedittovector()
 
 QImage QSLabel::resultimage()
 {
-    return QImage(QPixmap::grabWidget(this).toImage());
+    return QImage(QWidget::grab().toImage());
 
 }

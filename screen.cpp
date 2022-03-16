@@ -24,10 +24,13 @@ Screen::Screen(QWidget *parent)
     //截取全屏
     QScreen *scrPix = QGuiApplication::primaryScreen();
     pixmap = scrPix->grabWindow(0);
+
+    resolution = pixmap.width() / this->width();
+
     //全局路径的初始化，一个全屏闭合回路
-    globalPath.lineTo(pixmap.width(), 0);
-    globalPath.lineTo(pixmap.width(), pixmap.height());
-    globalPath.lineTo(0, pixmap.height());
+    globalPath.lineTo(pixmap.width() / resolution, 0);
+    globalPath.lineTo(pixmap.width() / resolution, pixmap.height() / resolution);
+    globalPath.lineTo(0, pixmap.height() / resolution);
     globalPath.lineTo(0, 0);
 
     oncePress = true;
@@ -356,7 +359,7 @@ void Screen::setselectimagelabel(QMouseEvent* event)
         int hei = abs(movePoint.y() - pressedPoint.y());
         int x =pressedPoint.x() < movePoint.x() ? pressedPoint.x() : movePoint.x();
         int y =pressedPoint.y() < movePoint.y() ? pressedPoint.y() : movePoint.y();
-        QImage selectimage=pixmap.copy(x,y,wid,hei).toImage();
+        QImage selectimage=pixmap.copy(x * resolution,y * resolution,wid * resolution,hei * resolution).toImage();
 
         labelimage->setimagetolabel(selectimage);
         labelimage->setFixedSize(wid,hei);

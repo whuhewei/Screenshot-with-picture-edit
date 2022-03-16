@@ -75,7 +75,7 @@ private:
     ControlWidget *controlUi;
     QRect rec;
     QSLabel *labelimage;
-
+    double resolution;    // 屏幕分辨率（图片像素与屏幕坐标之间的比值）
 };
 
 #endif // SCREEN_H

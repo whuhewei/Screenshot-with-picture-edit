@@ -43,7 +43,7 @@ public:
 
     Type pointInWhere(QPoint p);
     //返回截取之后的图片
-    QPixmap getGrabPixmap();
+    QImage getGrabPixmap();
 
     QPainterPath getPath();
     //保存截图

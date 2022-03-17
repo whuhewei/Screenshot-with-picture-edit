@@ -390,10 +390,9 @@ void Screen::savePixmap()
     }
 }
 
-QPixmap Screen::getGrabPixmap()   //返回截到的图片
+QImage Screen::getGrabPixmap()   //返回截到的图片
 {
-    return pixmap.copy(pressedPoint.x(), pressedPoint.y(), movePoint.x() - pressedPoint.x(),
-                                        movePoint.y() - pressedPoint.y());   //这个地方是关键，可以从这里入手了，得到了pixmap之后，进行toimage，然后进行编辑操作
+    return labelimage->resultimage();   //这个地方是关键，可以从这里入手了，得到了pixmap之后，进行toimage，然后进行编辑操作
 }
 
 void Screen::drawline()

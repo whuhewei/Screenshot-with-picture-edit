@@ -38,6 +38,7 @@ Screen::Screen(QWidget *parent)
     labelimage=new QSLabel(this);
     Qt::WindowFlags nType = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
     labelimage->setWindowFlags(nType);
+    labelimage->setParent(this);
     setMouseTracking(true);
     type = NO;
 
